@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+body{
+  font-family: 'Staatliches', cursive;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  background-color: #929D9E;
+}
