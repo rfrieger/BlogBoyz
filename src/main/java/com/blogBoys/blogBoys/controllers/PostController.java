@@ -17,7 +17,7 @@ public class PostController {
     public Posts getPostById(@PathVariable Integer id) { return this.postService.getPost(id);}
 
 
-    @GetMapping("/postByTag/{tag}")
+    @GetMapping("/postsByTag/{tag}")
     public Iterable<Posts> getPostTag(@PathVariable String tag) {return this.postService.PostsByTag(tag);}
 
 //    @GetMapping("/post/{name}")
