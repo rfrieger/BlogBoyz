@@ -27,7 +27,7 @@ export class PostListComponent implements OnInit {
     })
   };
 
-  getPostByTag(tag: string){
+  getPostByTag(tag){
     this.postService.findByTag(tag).subscribe(data => {
       this.posts = data;
     })

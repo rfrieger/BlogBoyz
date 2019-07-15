@@ -18,6 +18,8 @@ export class AppComponent {
     this.user = new User()
   }
 
+  authUser
+
   changeDisplayPostInput() {
     if (this.formIsShown ===false){
       this.formIsShown = true;}
