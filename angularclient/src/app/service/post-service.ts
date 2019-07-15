@@ -24,6 +24,7 @@ export class PostService {
 
   public findByTag(tag : string): Observable<Post[]> {
     this.test = this.usersUrl+"postsByTag/"+tag;
+    console.log(this.test)
     return this.http.get<Post[]>(this.test);
   }
 
