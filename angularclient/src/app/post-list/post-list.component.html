@@ -8,6 +8,7 @@
     <button class="dropdown-item" (click)="getPostByTag('TECHONLOGY')" href="#">Technology</button>
     <button class="dropdown-item" (click)="getPostByTag('BUSINESS')" href="#">Business</button>
     <button class="dropdown-item" (click)="getPostByTag('OTHER')" >Other</button>
+    <button class="dropdown-item" (click)="getAllPost()" >All</button>
 
   </div>
 </div>
@@ -29,7 +30,7 @@
             <footer class="blockquote-footer">Author <cite title="Source Title">10/03/2019</cite></footer>
           </div>
           <div class="col align-self-start">
-            <button (click)="deletePost(this.post.post_id)" type="button" class="btn btn-warning btn-sm deleteBtn">Delete</button>
+            <button *ngIf="userLoggedin" (click)="deletePost(this.post.post_id)" type="button" class="btn btn-warning btn-sm deleteBtn">Delete</button>
           </div>
         </div>
       </div>
