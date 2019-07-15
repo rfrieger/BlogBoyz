@@ -9,6 +9,7 @@ import {PostService} from '../service/post-service';
 })
 export class PostListComponent implements OnInit {
   @Input() userLoggedin = false;
+  @Input() showNewPost =false;
   posts: Post[];
 
   constructor(private postService: PostService ) {

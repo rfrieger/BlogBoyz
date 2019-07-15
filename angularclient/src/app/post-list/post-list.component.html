@@ -1,15 +1,16 @@
-<div class="dropdown dropBtn">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter By Tag
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <button class="dropdown-item" (click)="getPostByTag('SPORTS')" href="#">Sports</button>
-    <button class="dropdown-item" (click)="getPostByTag('FINANCE')" href="#">Finance</button>
-    <button class="dropdown-item" (click)="getPostByTag('TECHONLOGY')" href="#">Technology</button>
-    <button class="dropdown-item" (click)="getPostByTag('BUSINESS')" href="#">Business</button>
-    <button class="dropdown-item" (click)="getPostByTag('OTHER')" >Other</button>
-    <button class="dropdown-item" (click)="getAllPost()" >All</button>
-
+<div class="col align-self-end">
+  <div class="dropdown dropBtn">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filter By Tag
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item" (click)="getPostByTag('SPORTS')" href="#">Sports</button>
+      <button class="dropdown-item" (click)="getPostByTag('FINANCE')" href="#">Finance</button>
+      <button class="dropdown-item" (click)="getPostByTag('TECHONLOGY')" href="#">Technology</button>
+      <button class="dropdown-item" (click)="getPostByTag('BUSINESS')" href="#">Business</button>
+      <button class="dropdown-item" (click)="getPostByTag('OTHER')" >Other</button>
+      <button class="dropdown-item" (click)="getAllPost()" >All</button>
+    </div>
   </div>
 </div>
 
@@ -19,8 +20,9 @@
     {{post.title}}
   </div>
   {{post.tag}}
-
-  <img src="{{post.image || 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg'}} " class="img-fluid" alt="Responsive image">
+  <div class="imgWrapper">
+    <img src="{{post.image || 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg'}} " class="img-fluid" alt="Responsive image">
+  </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p>{{post.content}}</p>

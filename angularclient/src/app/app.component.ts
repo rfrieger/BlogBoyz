@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'BlogBoyz';
   isSetFields : boolean;
   formIsShown = false;
+  togglePost = false
   showCreateUserModal = false;
   showSignInModal= false;
   user : User;
@@ -48,7 +49,7 @@ export class AppComponent {
       }
       if (this.isSetFields) {
         if (this.tempUser.name === this.loginUser.name && this.tempUser.password === this.loginUser.password) {
-          this.changeDisplayPostInput();
+          // this.changeDisplayPostInput();
           this.changeDisplayLoginModal();
           this.userLoggedInFlag = true;
           // this.passLogin = true;
@@ -65,6 +66,14 @@ export class AppComponent {
     if (this.formIsShown ===false){
       this.formIsShown = true;}
     else this.formIsShown = false;
+    window.scrollTo(0, 0)
+  }
+
+  changeDisplayPostbtn() {
+
+    if (this.togglePost ===false){
+      this.togglePost = true;}
+    else this.togglePost = false;
   }
 
   changeDisplayCreateUserModal() {
