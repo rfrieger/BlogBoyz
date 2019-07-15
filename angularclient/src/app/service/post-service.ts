@@ -39,6 +39,9 @@ export class PostService {
   public saveUser(user: User) {
     return this.http.post<User>(this.usersUrl + "users", user)
   }
+  public getUser(name:string) {
+    return this.http.get<User>(this.usersUrl  + "usersbyname/" + name);
+  }
 
 
 }

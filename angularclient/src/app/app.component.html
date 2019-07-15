@@ -6,7 +6,7 @@
       <p>Sign Up</p>
       <input class="form-control mr-sm-2 loginField" type="search"  placeholder="Username" [(ngModel)]="user.name">
       <input class="form-control mr-sm-2 loginField" type="search" placeholder="Password" [(ngModel)]="user.password">
-      <button class="btn btn-outline-success my-2 my-sm-0" id="submitLoginBtn" type="submit"(click)= createUser()>Submit</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" id="submitLoginBtn" type="submit" (click)= createUser()>Submit</button>
       <button class="btn btn-outline-danger my-2 my-sm-0" id="exitLoginBtn" type="submit" (click)=changeDisplayModal()>Exit</button>
     </div>
 
@@ -18,13 +18,13 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Username" aria-label="Search">
-      <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Search">
+    <!--    <form class="form-inline my-2 my-lg-0">-->
+    <input class="form-control mr-sm-2" type="search" placeholder="Username" value="1" [(ngModel)]="loginUser.name" aria-label="Search">
+    <input class="form-control mr-sm-2" type="password" placeholder="Password" value="1" [(ngModel)]="loginUser.password" aria-label="Search">
 
-      <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)="changeDisplayPostInput()">Login</button >
-      <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)=changeDisplayModal() >Signup</button >
-    </form>
+    <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)="authUser(loginUser.name)" >Login</button >
+    <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)=changeDisplayModal() >Signup</button >
+    <!--    </form>-->
   </div>
 </nav>
 <app-post-list></app-post-list>
