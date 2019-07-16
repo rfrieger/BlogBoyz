@@ -15,12 +15,12 @@ export class PostFormComponent {
 
   post: Post;
 
-
   constructor(private route: ActivatedRoute, private router: Router, private postService: PostService) {
     this.post = new Post();
   }
 
   async onSubmit() {
+    this.post.date= "5551111"
     await this.postService.save(this.post).then( ()=> console.log("success"));
     this.sendEmit()
   }

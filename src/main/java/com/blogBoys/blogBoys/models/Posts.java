@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
 
 @Entity
@@ -14,18 +15,20 @@ public class Posts {
     String title;
     String content;
     String image;
-    Date date; // using java.sql.date
+    String date;
     String tag;
+    Integer user_id;
 
     public Posts() {
     }
 
-    public Posts(String title, String content, String image, Date date, String tag) {
+    public Posts(String title, String content, String image, String date, String tag, Integer user_id) {
         this.title = title;
         this.content = content;
         this.image = image;
         this.date = date;
         this.tag = tag;
+        this.user_id = user_id;
     }
 
     public Integer getPost_id() {
@@ -48,6 +51,14 @@ public class Posts {
         return content;
     }
 
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
     public void setContent(String content) {
         this.content = content;
     }
@@ -60,11 +71,11 @@ public class Posts {
         this.image = image;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

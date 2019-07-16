@@ -28,7 +28,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostById() {
-        when(postController.getPostById(1)).thenReturn(subData().get(1));
+        when(postService.getPost(1)).thenReturn(subData().get(1));
         postController.getPostById(1);
 
         verify(postService,times(1)).getPost(1);
@@ -36,7 +36,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostTag() {
-        when(postController.getPostTag("OTHER")).thenReturn(subData());
+        when(postService.PostsByTag("OTHER")).thenReturn(subData());
         postController.getPostTag("OTHER");
 
         verify(postService,times(1)).PostsByTag("OTHER");
@@ -44,7 +44,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostAll() {
-        when(postController.getPostAll()).thenReturn(subData());
+        when(postService.index()).thenReturn(subData());
         postController.getPostAll();
         verify(postService,times(1)).index();
     }
@@ -79,13 +79,13 @@ public class PostControllerTest {
 
 
     private List<Posts> subData() {
-        Posts post1 = new Posts("stuff", "Rieger", "jnkj",null, "SPORTS");
-        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj",null, "OTHER");
+        Posts post1 = new Posts("stuff", "Rieger", "jnkj",null, "SPORTS", 1);
+        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj",null, "OTHER",1);
 
         return Arrays.asList(post1, post2);
     }
 
     private Posts mockPerson () {
-        return new Posts("morrestuff", "Rieger", "jnkj",null, "OTHER");
+        return new Posts("morrestuff", "Rieger", "jnkj",null, "OTHER",1);
     }
 }

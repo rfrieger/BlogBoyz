@@ -5,8 +5,9 @@ export class Post {
   title: string;
   content: string;
   image: string;
-  date: DateTimeFormat;
+  date: string;
   tag: string;
+  user_id: number
 
    constructor() {
       this.post_id = 1;
@@ -15,5 +16,6 @@ export class Post {
       this.image = "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg";
       this.date = null;
       this.tag = "OTHER"
+      this.user_id = 1;
    };
 }
