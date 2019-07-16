@@ -1,5 +1,5 @@
-<div class="col align-self-end">
-  <div class="dropdown dropBtn">
+
+  <div class="dropdown dropBtn fixed-bottom">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Filter By Tag
     </button>
@@ -12,7 +12,7 @@
       <button class="dropdown-item" (click)="getAllPost()" >All</button>
     </div>
   </div>
-</div>
+
 
 <div id="card_wrapper">
 <div *ngFor="let post of posts"  class="card">

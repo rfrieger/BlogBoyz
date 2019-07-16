@@ -2,6 +2,7 @@ package com.blogBoys.blogBoys.controllers;
 
 import com.blogBoys.blogBoys.models.Posts;
 import com.blogBoys.blogBoys.repos.PostRepo;
+import com.blogBoys.blogBoys.services.PostService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,14 +15,15 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-
 public class PostControllerTest {
 
     @Mock
-    private PostRepo postRepo;
+    private PostService postService;
 
     @InjectMocks
     private PostController postController;
+
+
 
 
     @Test
@@ -29,7 +31,7 @@ public class PostControllerTest {
         when(postController.getPostById(1)).thenReturn(subData().get(1));
         postController.getPostById(1);
 
-        verify(postRepo,times(1)).findById(1);
+        verify(postService,times(1)).getPost(1);
     }
 
     @Test
@@ -37,14 +39,14 @@ public class PostControllerTest {
         when(postController.getPostTag("OTHER")).thenReturn(subData());
         postController.getPostTag("OTHER");
 
-        verify(postRepo,times(1)).getPostsByTag("OTHER");
+        verify(postService,times(1)).PostsByTag("OTHER");
     }
 
     @Test
     public void getPostAll() {
         when(postController.getPostAll()).thenReturn(subData());
         postController.getPostAll();
-        verify(postRepo,times(1)).findAll();
+        verify(postService,times(1)).index();
     }
 
     @Test
@@ -54,7 +56,7 @@ public class PostControllerTest {
         when(postController.createPost(post)).thenReturn(post);
         postController.createPost(post);
 
-        verify(postRepo, times(1)).save(post);
+        verify(postService, times(1)).create(post);
     }
 
 
@@ -64,16 +66,15 @@ public class PostControllerTest {
 
         when(postController.updatePost( 1, posts)).thenReturn(posts);
         postController.updatePost( 1,posts);
-        verify(postRepo,times(1)).save(posts);
+        verify(postService,times(1)).update(posts);
 
     }
 
     @Test
     public void deletePost() {
-//        when(postController.deletePost(1));
-//        postController.deletePost(1);
-//
-//        verify(postRepo, times(1)).delete(1);
+
+       postController.deletePost(1);
+        verify(postService, times(1)).deletePost(1);
     }
 
 

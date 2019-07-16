@@ -20,7 +20,6 @@ public class UserController {
     }
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable int id) {userService.deleteUser(id);}
-
     @GetMapping
     public Iterable<Users> getAllUsers() {
         return userService.index();

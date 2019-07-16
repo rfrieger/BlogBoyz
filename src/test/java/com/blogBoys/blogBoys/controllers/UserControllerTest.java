@@ -1,7 +1,7 @@
 package com.blogBoys.blogBoys.controllers;
 
 import com.blogBoys.blogBoys.models.Users;
-import com.blogBoys.blogBoys.repos.UserRepo;
+import com.blogBoys.blogBoys.services.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,7 +18,7 @@ public class UserControllerTest {
 
 
         @Mock
-        private UserRepo userRepo;
+        private UserService userService;
 
         @InjectMocks
         private UserController userController;
@@ -30,16 +30,14 @@ public class UserControllerTest {
         when(userController.createUser(user)).thenReturn(user);
         userController.createUser(user);
 
-        verify(userRepo, times(1)).save(user);
+        verify(userService, times(1)).create(user);
         }
 
 
         @Test
         public void deleteUser() {
-//        when(userController.deleteById(1));
-//        userController.deleteById(1);
-//
-//        verify(userRepo, times(1)).deleteById(1);
+        userController.deleteUser(1);
+        verify(userService, times(1)).deleteUser(1);
 
         }
 
@@ -47,7 +45,7 @@ public class UserControllerTest {
         public void getAllUsers() {
         when(userController.getAllUsers()).thenReturn(subData());
         userController.getAllUsers();
-        verify(userRepo,times(1)).findAll();
+        verify(userService,times(1)).index();
 
         }
 
@@ -57,7 +55,7 @@ public class UserControllerTest {
         when(userController.getUser(1)).thenReturn(subData().get(1));
         userController.getUser(1);
 
-        verify(userRepo,times(1)).findById(1);
+        verify(userService,times(1)).getUserById(1);
         }
 
         private List<Users> subData() {
