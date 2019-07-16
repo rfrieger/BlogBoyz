@@ -21,8 +21,7 @@ export class PostFormComponent {
   }
 
   async onSubmit() {
-    this.postService.save(this.post).subscribe( ()=> console.log("success"));
-    this.sleep(1000)
+    await this.postService.save(this.post).then( ()=> console.log("success"));
     this.sendEmit()
   }
 

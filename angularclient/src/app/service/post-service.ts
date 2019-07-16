@@ -28,12 +28,17 @@ export class PostService {
     return this.http.get<Post[]>(this.test);
   }
 
-  public save(post: Post) {
-    return this.http.post<Post>(this.usersUrl+"posts", post);
+  async save(post: Post) {
+     // this.http.post<Post>(this.usersUrl+"posts", post);
+
+     const t = this.http.post<Post>(this.usersUrl+"posts", post).toPromise();
+     return t;
   }
 
-  public delete(id): Observable<Post[]>{
-    return this.http.delete<Post[]>(this.usersUrl +"posts/"+ id);
+  async delete(id){
+      const t = this.http.delete<Post[]>(this.usersUrl +"posts/"+ id).toPromise();
+      return t
+
   }
 
   public saveUser(user: User) {

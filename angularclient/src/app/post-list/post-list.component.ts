@@ -19,8 +19,8 @@ export class PostListComponent implements OnInit {
     this.getAllPost()
   }
 
-  deletePost(id) {
-    this.postService.delete(id).subscribe(data => {
+  async deletePost(id) {
+   await this.postService.delete(id).then(data => {
       console.log("success")
       this.getAllPost()
     })
@@ -32,10 +32,12 @@ export class PostListComponent implements OnInit {
     })
   }
 
-  getAllPost(){
+   getAllPost(){
     console.log("test")
-    this.postService.findAll().subscribe(data => {
+      this.postService.findAll().subscribe(data => {
       this.posts = data;
     });
+
+
   }
 }
