@@ -11,7 +11,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -25,7 +24,7 @@ public class PostServiceTest {
 
     @Test
     public void postsByTag() {
-        when(postService.PostsByTag("SPORTS")).thenReturn(subData());
+        when(postRepo.getPostsByTag("SPORTS")).thenReturn(stubData());
         postService.PostsByTag("SPORTS");
 
         verify(postRepo, times(1)).getPostsByTag("SPORTS");
@@ -33,15 +32,17 @@ public class PostServiceTest {
 
     @Test
     public void getPost() {
-        when(postService.getPost(1)).thenReturn(subData().get(1));
-        postService.getPost(1);
+        when(postRepo.findById(0));
+        postService.getPost(0);
+        verify(postRepo,times(1)).findById(0);
 
-        verify(postRepo,times(1)).findById(1);
     }
+
+
 
     @Test
     public void index() {
-        when(postService.index()).thenReturn(subData());
+        when(postRepo.findAll()).thenReturn(stubData());
         postService.index();
 
         verify(postRepo,times(1)).findAll();
@@ -51,16 +52,16 @@ public class PostServiceTest {
     public void create() {
         Posts post = mockPerson();
 
-        when(postService.create(post)).thenReturn(post);
+        when(postRepo.save(post)).thenReturn(post);
         postService.create(post);
-
         verify(postRepo, times(1)).save(post);
+
     }
 
     @Test
     public void update() {
         Posts posts = mockPerson();
-        when(postService.update( posts)).thenReturn(posts);
+        when(postRepo.save( posts)).thenReturn(posts);
         postService.update( posts);
         verify(postRepo,times(1)).save(posts);
 
@@ -74,7 +75,7 @@ public class PostServiceTest {
 
 
 
-    private List<Posts> subData() {
+    private List<Posts> stubData() {
         Posts post1 = new Posts("stuff", "Rieger", "jnkj", null, "SPORTS", 1);
         Posts post2 = new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1);
 

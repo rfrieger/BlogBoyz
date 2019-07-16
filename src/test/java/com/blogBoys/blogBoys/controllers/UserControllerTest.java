@@ -27,7 +27,7 @@ public class UserControllerTest {
         public void createUser() {
         Users user = mockPerson();
 
-        when(userController.createUser(user)).thenReturn(user);
+        when(userService.create(user)).thenReturn(user);
         userController.createUser(user);
 
         verify(userService, times(1)).create(user);
@@ -43,7 +43,7 @@ public class UserControllerTest {
 
         @Test
         public void getAllUsers() {
-        when(userController.getAllUsers()).thenReturn(subData());
+        when(userService.index()).thenReturn(subData());
         userController.getAllUsers();
         verify(userService,times(1)).index();
 
@@ -52,7 +52,7 @@ public class UserControllerTest {
         @Test
         public void getUser() {
 
-        when(userController.getUser(1)).thenReturn(subData().get(1));
+        when(userService.getUserById(1)).thenReturn(subData().get(1));
         userController.getUser(1);
 
         verify(userService,times(1)).getUserById(1);

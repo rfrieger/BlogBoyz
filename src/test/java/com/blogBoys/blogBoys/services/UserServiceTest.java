@@ -28,7 +28,7 @@ public class UserServiceTest {
     public void create() {
         Users user = mockPerson();
 
-        when(userService.create(user)).thenReturn(user);
+        when(userRepo.save(user)).thenReturn(user);
         userService.create(user);
 
         verify(userRepo, times(1)).save(user);
@@ -42,7 +42,7 @@ public class UserServiceTest {
 
     @Test
     public void getUserById() {
-        when(userService.getUserById(0)).thenReturn(subData().get(0));
+//        when(userRepo.findById(0)).thenReturn(subData().get(0));
         userService.getUserById(0);
 
         verify(userRepo,times(1)).findById(0);

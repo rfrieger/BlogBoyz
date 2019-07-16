@@ -1,7 +1,6 @@
 package com.blogBoys.blogBoys.controllers;
 
 import com.blogBoys.blogBoys.models.Posts;
-import com.blogBoys.blogBoys.repos.PostRepo;
 import com.blogBoys.blogBoys.services.PostService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +27,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostById() {
-        when(postService.getPost(1)).thenReturn(subData().get(1));
+        when(postService.getPost(1)).thenReturn(stubData().get(1));
         postController.getPostById(1);
 
         verify(postService,times(1)).getPost(1);
@@ -36,7 +35,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostTag() {
-        when(postService.PostsByTag("OTHER")).thenReturn(subData());
+        when(postService.PostsByTag("OTHER")).thenReturn(stubData());
         postController.getPostTag("OTHER");
 
         verify(postService,times(1)).PostsByTag("OTHER");
@@ -44,7 +43,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostAll() {
-        when(postService.index()).thenReturn(subData());
+        when(postService.index()).thenReturn(stubData());
         postController.getPostAll();
         verify(postService,times(1)).index();
     }
@@ -53,7 +52,7 @@ public class PostControllerTest {
     public void createPost() {
         Posts post = mockPerson();
 
-        when(postController.createPost(post)).thenReturn(post);
+        when(postService.create(post)).thenReturn(post);
         postController.createPost(post);
 
         verify(postService, times(1)).create(post);
@@ -64,7 +63,7 @@ public class PostControllerTest {
     public void updatePost() {
         Posts posts = mockPerson();
 
-        when(postController.updatePost( 1, posts)).thenReturn(posts);
+        when(postService.update(posts)).thenReturn(posts);
         postController.updatePost( 1,posts);
         verify(postService,times(1)).update(posts);
 
@@ -78,7 +77,7 @@ public class PostControllerTest {
     }
 
 
-    private List<Posts> subData() {
+    private List<Posts> stubData() {
         Posts post1 = new Posts("stuff", "Rieger", "jnkj",null, "SPORTS", 1);
         Posts post2 = new Posts("morrestuff", "Rieger", "jnkj",null, "OTHER",1);
 

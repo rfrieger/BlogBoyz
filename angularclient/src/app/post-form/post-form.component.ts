@@ -20,7 +20,7 @@ export class PostFormComponent {
   }
 
   async onSubmit() {
-    this.post.date= "5551111"
+    this.post.date= "g"
     await this.postService.save(this.post).then( ()=> console.log("success"));
     this.sendEmit()
   }
