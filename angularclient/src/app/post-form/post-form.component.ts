@@ -10,7 +10,9 @@ import { Post } from '../post';
 })
 export class PostFormComponent {
   @Input() showNewPost: boolean;
+  @Input() loggedInUserName: string = "";
   @Output() updateList = new EventEmitter();
+
   post: Post;
 
 
@@ -20,7 +22,7 @@ export class PostFormComponent {
 
   async onSubmit() {
     this.postService.save(this.post).subscribe( ()=> console.log("success"));
-    this.sleep(500)
+    this.sleep(1000)
     this.sendEmit()
   }
 

@@ -12,14 +12,14 @@ export class AppComponent {
   title = 'BlogBoyz';
   isSetFields : boolean;
   formIsShown = false;
-  togglePost = false
+  togglePost = false;
   showCreateUserModal = false;
   showSignInModal= false;
+  passLogin = false;
+  userLoggedInFlag = false;
   user : User;
   loginUser : User;
   tempUser:User;
-  passLogin = false;
-  userLoggedInFlag = false;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private postService: PostService) {
@@ -62,7 +62,6 @@ export class AppComponent {
 ////////////////////// ^^TO THE BACK ////////////////////////
 
   changeDisplayPostInput() {
-
     if (this.formIsShown ===false){
       this.formIsShown = true;}
     else this.formIsShown = false;

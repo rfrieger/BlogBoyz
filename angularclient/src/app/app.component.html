@@ -5,6 +5,19 @@
   <a class="navbar-brand nav_title" (click)=listComponent.getAllPost() href="#">Blogboyz</a>
   <button *ngIf="userLoggedInFlag" class="btn btn-secondary"(click)= "changeDisplayPostInput()" href="#">Make Post</button>
 
+<!--  <div class="dropdown dropBtn fixed-bottom ">-->
+<!--    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--      Filter By Tag-->
+<!--    </button>-->
+<!--    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--      <button class="dropdown-item" (click)="getPostByTag('SPORTS')" href="#">Sports</button>-->
+<!--      <button class="dropdown-item" (click)="getPostByTag('FINANCE')" href="#">Finance</button>-->
+<!--      <button class="dropdown-item" (click)="getPostByTag('TECHONLOGY')" href="#">Technology</button>-->
+<!--      <button class="dropdown-item" (click)="getPostByTag('BUSINESS')" href="#">Business</button>-->
+<!--      <button class="dropdown-item" (click)="getPostByTag('OTHER')" >Other</button>-->
+<!--      <button class="dropdown-item" (click)="getAllPost()" >All</button>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,11 +28,11 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
     <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)= changeDisplayLoginModal()>Login</button >
-    <button class="btn btn-outline-success my-2 my-sm-0"  type="submit" (click)=changeDisplayCreateUserModal() >Signup</button >
+    <button class="btn btn-outline-success my-2 my-sm-0 signUpBtn"  type="submit" (click)=changeDisplayCreateUserModal() >Signup</button >
   </div>
 </nav>
 
-<app-post-form  [showNewPost] = "formIsShown"  (updateList)="listComponent.getAllPost()" ></app-post-form>
+<app-post-form  [showNewPost] = "formIsShown" [loggedInUserName]="loginUser.name" (updateList)="listComponent.getAllPost()" ></app-post-form>
 <app-post-list [userLoggedin] ="userLoggedInFlag" #listComponent></app-post-list>
 
 
@@ -33,11 +46,11 @@
 
 <div id="CreateUserModal" class="modal" *ngIf="showCreateUserModal">
   <div class="modal-content">
-    <p>Sign Up</p>
+    <h2>Sign Up</h2>
     <input class="form-control mr-sm-2 loginField" type="search"  placeholder="Username" [(ngModel)]="user.name">
     <input class="form-control mr-sm-2 loginField" type="search" placeholder="Password" [(ngModel)]="user.password">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="submitCreateBtn" type="submit" (click)= createUser()>Submit</button>
-    <button class="btn btn-outline-danger my-2 my-sm-0" id="exitCreateBtn" type="submit" (click)=changeDisplayCreateUserModal()>Exit</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" id="submitCreateBtn" type="submit" (click)= createUser() (keyup.enter)="createUser()">Submit</button>
+    <button class="btn btn-outline-danger my-2 my-sm-0" id="exitCreateBtn" type="submit" (click)=changeDisplayCreateUserModal() (keyup.escape)="changeDisplayCreateUserModal()">Exit</button>
   </div>
 
 </div>
@@ -46,11 +59,11 @@
 
 <div id="SigninModal" class="modal" *ngIf="showSignInModal">
   <div class="modal-content">
-    <p>Sign In</p>
+    <h2>Login</h2>
     <input class="form-control mr-sm-2 loginField" type="search"  placeholder="Username" [(ngModel)]="loginUser.name">
     <input class="form-control mr-sm-2 loginField" type="search" placeholder="Password" [(ngModel)]="loginUser.password">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="submitLoginBtn" type="submit" (click)= authUser(loginUser.name)>Submit</button>
-    <button class="btn btn-outline-danger my-2 my-sm-0" id="exitLoginBtn" type="submit" (click)=changeDisplayLoginModal()>Exit</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" id="submitLoginBtn" type="submit" (click)= authUser(loginUser.name) (keyup.enter)="authUser(loginUser.name)">Submit</button>
+    <button class="btn btn-outline-danger my-2 my-sm-0" id="exitLoginBtn" type="submit" (click)=changeDisplayLoginModal() (keyup.escape)="changeDisplayLoginModal()">Exit</button>
   </div>
 
 </div>

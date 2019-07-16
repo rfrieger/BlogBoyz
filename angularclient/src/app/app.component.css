@@ -18,7 +18,11 @@
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 500px;
+  max-width: 300px;
   background: #343a40;
   color: #ffffff;
+}
+
+.signUpBtn{
+  margin-left: 1em;
 }
