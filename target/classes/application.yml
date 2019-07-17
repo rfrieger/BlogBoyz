@@ -1,0 +1,30 @@
+
+spring:
+  profiles: local
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform:
+    url: jdbc:mysql://localhost:3306/blogBoys
+    username: root
+    password: password
+    driverClassName:
+
+---
+spring:
+  profiles: dev
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform:
+    url: jdbc:mysql://bcc9271327d80f:fb19147f@us-cdbr-iron-east-02.cleardb.net/heroku_4195818c7aea03b?reconnect=true
+
+    username: bcc9271327d80f
+    password: fb19147f
+    driverClassName:

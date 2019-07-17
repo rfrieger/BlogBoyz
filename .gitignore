@@ -103,6 +103,7 @@ modules.xml
 /.idea
 
 # misc
+target
 /.sass-cache
 /connect.lock
 /coverage/*
