@@ -21,16 +21,14 @@ export class PostFormComponent {
 
   async onSubmit() {
     this.post.date= "g"
+    console.log(this.post.date)
     await this.postService.save(this.post).then( ()=> console.log("success"));
+    console.log(this.post.date)
     this.sendEmit()
   }
 
   sendEmit() {
     this.updateList.emit(null);
-  }
-
-  sleep = function(time) {
-    return new Promise(resolve => {setTimeout(resolve,time)})
   }
 
 }

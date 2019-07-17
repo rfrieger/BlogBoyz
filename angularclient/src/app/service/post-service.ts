@@ -16,8 +16,6 @@ export class PostService {
     this.usersUrl = 'http://localhost:8080/';
   }
 
-
-
   public findAll(): Observable<Post[]> {
     return this.http.get<Post[]>(this.usersUrl+"posts");
   }
@@ -29,8 +27,6 @@ export class PostService {
   }
 
   async save(post: Post) {
-     // this.http.post<Post>(this.usersUrl+"posts", post);
-
      const t = this.http.post<Post>(this.usersUrl+"posts", post).toPromise();
      return t;
   }
@@ -44,6 +40,7 @@ export class PostService {
   public saveUser(user: User) {
     return this.http.post<User>(this.usersUrl + "users", user)
   }
+
   public getUser(name:string) {
     return this.http.get<User>(this.usersUrl  + "usersbyname/" + name);
   }

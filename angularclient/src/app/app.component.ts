@@ -9,14 +9,14 @@ import {User} from "./user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loginBtn = "Login"
   title = 'BlogBoyz';
   isSetFields : boolean;
-  formIsShown = false;
-  togglePost = false;
+  showPostForm = false;
   showCreateUserModal = false;
   showSignInModal= false;
-  passLogin = false;
   userLoggedInFlag = false;
+
   user : User;
   loginUser : User;
   tempUser:User;
@@ -31,29 +31,21 @@ export class AppComponent {
   ///////////MOVE TO BACK END vv ////////////
 
   async authUser(name) {
-    this.isSetFields = false;
-    this.postService.getUser(name).subscribe( data => {
+     this.isSetFields = false;
+      this.postService.getUser(name).subscribe(data => {
+        this.tempUser.name = data.name;
+        this.tempUser.password = data.password;
+      });
 
-      console.log("--"+data.name)
-      console.log("--"+data.password)
-      this.tempUser.name= data.name;
-      this.tempUser.password= data.password;
-    });
-
-    this.sleep(500).then(() => {
-
-      console.log(this.loginUser.name, this.loginUser.password, this.tempUser.name, this.tempUser.password);
-
-      if (this.tempUser.name != "" && this.tempUser.password != "") {
-        this.isSetFields = true;
-      }
-      if (this.isSetFields) {
-        if (this.tempUser.name === this.loginUser.name && this.tempUser.password === this.loginUser.password) {
-          // this.changeDisplayPostInput();
-          this.changeDisplayLoginModal();
-          this.userLoggedInFlag = true;
-          // this.passLogin = true;
-          alert("login Successful")
+      this.sleep(500).then(() => {
+        if (this.tempUser.name != "" && this.tempUser.password != "") {
+          this.isSetFields = true;
+        }
+        if (this.isSetFields) {
+          if (this.tempUser.name === this.loginUser.name && this.tempUser.password === this.loginUser.password) {
+            this.loginBtn = "Logout";
+            this.userLoggedInFlag = true;
+            this.showSignInModal = false;
         } else alert("Incorrect password!");
       }
     })
@@ -62,18 +54,12 @@ export class AppComponent {
 ////////////////////// ^^TO THE BACK ////////////////////////
 
   changeDisplayPostInput() {
-    if (this.formIsShown ===false){
-      this.formIsShown = true;}
-    else this.formIsShown = false;
+    if (this.showPostForm ===false){
+      this.showPostForm = true;}
+    else this.showPostForm = false;
     window.scrollTo(0, 0)
   }
 
-  changeDisplayPostbtn() {
-
-    if (this.togglePost ===false){
-      this.togglePost = true;}
-    else this.togglePost = false;
-  }
 
   changeDisplayCreateUserModal() {
     if (this.showCreateUserModal ===false){
@@ -81,17 +67,21 @@ export class AppComponent {
     else this.showCreateUserModal = false;
   }
 
-  changeDisplayLoginModal() {
-    if (this.showSignInModal ===false){
-      this.showSignInModal = true;}
-    else this.showSignInModal = false;
+  changeDisplayLogin() {
+      if (this.showSignInModal === false && this.userLoggedInFlag === false) {
+        this.showSignInModal = true;
+      } else {
+        this.loginBtn = "Login"
+        this.userLoggedInFlag = false
+      }
   }
 
   createUser() {
-    console.log("formIsShown");
+    console.log("showPostForm");
     this.postService.saveUser(this.user).subscribe( ()=> console.log("success"));
     this.changeDisplayCreateUserModal()
   }
+
 
    sleep = function(time) {
     return new Promise(resolve => {setTimeout(resolve,time)})
