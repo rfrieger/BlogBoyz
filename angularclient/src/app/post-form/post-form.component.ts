@@ -20,10 +20,10 @@ export class PostFormComponent {
   }
 
   async onSubmit() {
-    this.post.date= "g"
-    console.log(this.post.date)
+    this.post.date = new Date().toLocaleString()
+    console.log();
     await this.postService.save(this.post).then( ()=> console.log("success"));
-    console.log(this.post.date)
+
     this.sendEmit()
   }
 

@@ -29,7 +29,7 @@
       <div class="container">
         <div class="row">
           <div class="col align-self-end">
-            <footer class="blockquote-footer">Author <cite title="Source Title">10/03/2019</cite></footer>
+            <footer class="blockquote-footer">Author <cite title="Source Title">{{post.date}}</cite></footer>
           </div>
           <div class="col align-self-start">
             <button *ngIf="userLoggedin" (click)="deletePost(this.post.post_id)" type="button" class="btn btn-warning btn-sm deleteBtn">Delete</button>
