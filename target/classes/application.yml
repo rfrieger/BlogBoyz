@@ -1,0 +1,57 @@
+##
+#spring:
+#  profiles: local
+#
+#  jpa:
+#    database: mysql
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    platform:
+#    url: dbc:mysql://localhost:3306/blogBoys
+#    username: root
+#    password: password
+#    driverClassName:
+#
+#---
+#spring:
+#  profiles: dev
+#
+#  jpa:
+#    database: mysql
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    platform:
+#    url: jdbc:mysql://bcc9271327d80f:fb19147f@us-cdbr-iron-east-02.cleardb.net/heroku_4195818c7aea03b?reconnect=true
+#
+#    username: bcc9271327d80f
+#    password: fb19147f
+#    driverClassName:
+
+spring:
+  profiles: local
+  datasource:
+    url: dbc:mysql://localhost:3306/blogBoys
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://bcc9271327d80f:fb19147f@us-cdbr-iron-east-02.cleardb.net/heroku_4195818c7aea03b?reconnect=true
+    username: bcc9271327d80f
+    password: fb19147f
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
