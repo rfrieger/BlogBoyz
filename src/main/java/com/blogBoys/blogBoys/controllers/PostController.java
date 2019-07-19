@@ -4,6 +4,8 @@ import com.blogBoys.blogBoys.models.Posts;
 import com.blogBoys.blogBoys.services.PostService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class PostController {
@@ -24,7 +26,7 @@ public class PostController {
 //    public Posts getPostByName(@PathVariable String name){return this.postService.getByName(name);}
 
     @GetMapping("/posts")
-    public Iterable<Posts> getPostAll() { return this.postService.index(); }
+    public List<Posts> getPostAll() { return this.postService.index(); }
 
 
     @PostMapping("/posts")
