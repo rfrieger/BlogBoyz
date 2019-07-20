@@ -76,13 +76,13 @@ public class PostServiceTest {
 
 
     private List<Posts> stubData() {
-        Posts post1 = new Posts("stuff", "Rieger", "jnkj", null, "SPORTS", 1);
-        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1);
+        Posts post1 = new Posts("stuff", "Rieger", "jnkj", null, "SPORTS", 1,"");
+        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1,"");
 
         return Arrays.asList(post1, post2);
     }
 
     private Posts mockPerson() {
-        return new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1);
+        return new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1,"");
     }
 }

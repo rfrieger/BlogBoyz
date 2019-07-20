@@ -1,9 +1,11 @@
 package com.blogBoys.blogBoys.models;
 
+import org.springframework.data.repository.cdi.Eager;
+import org.springframework.data.util.Lazy;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Users {
@@ -14,7 +16,7 @@ public class Users {
     String name;
     String password;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Posts> posts = new ArrayList<>();
 
 
