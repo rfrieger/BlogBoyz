@@ -1,9 +1,8 @@
 package com.blogBoys.blogBoys.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.engine.internal.Cascade;
+
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
 
@@ -18,17 +17,24 @@ public class Posts {
     String date;
     String tag;
     Integer user_id;
+    String author;
+
+//    @ManyToOne//(cascade = CascadeType.ALL)
+//    private Users users;
 
     public Posts() {
     }
 
-    public Posts(String title, String content, String image, String date, String tag, Integer user_id) {
+
+
+    public Posts(String title, String content, String image, String date, String tag, Integer user_id , String author) {
         this.title = title;
         this.content = content;
         this.image = image;
         this.date = date;
         this.tag = tag;
         this.user_id = user_id;
+        this.author = author;
     }
 
     public Integer getPost_id() {
@@ -85,5 +91,22 @@ public class Posts {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+
+//    public Users getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Users users) {
+//        this.users = users;
+//    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

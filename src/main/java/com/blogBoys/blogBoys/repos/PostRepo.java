@@ -9,9 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PostRepo extends CrudRepository<Posts, Integer> {
-//    Posts findAllByContentContains
-
     Iterable<Posts> getPostsByTag(String tag);
-    List<Posts> getAllByContentNotNull ();
-
+    List<Posts> getAllByContentNotNull();
 }
