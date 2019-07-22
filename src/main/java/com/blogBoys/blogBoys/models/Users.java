@@ -1,8 +1,7 @@
 package com.blogBoys.blogBoys.models;
 
-import org.springframework.data.repository.cdi.Eager;
-import org.springframework.data.util.Lazy;
-
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +15,9 @@ public class Users {
     String name;
     String password;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Posts> posts = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.TRUE)
+    private List<Posts> posts = new ArrayList<>();
 
 
     public Users() {
@@ -52,12 +52,12 @@ public class Users {
         this.password = password;
     }
 
-//    public List<Posts> getPosts() {
-//        return posts;
-//    }
-//
-//    public void setPosts(List<Posts> posts) {
-//        this.posts = posts;
-//    }
+    public List<Posts> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Posts> posts) {
+        this.posts = posts;
+    }
 
 }

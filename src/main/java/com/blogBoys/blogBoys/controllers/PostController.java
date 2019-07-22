@@ -26,7 +26,7 @@ public class PostController {
 //    public Posts getPostByName(@PathVariable String name){return this.postService.getByName(name);}
 
     @GetMapping("/posts")
-    public List<Posts> getPostAll() { return this.postService.index(); }
+    public Iterable<Posts> getPostAll() { return this.postService.index(); }
 
 
     @PostMapping("/posts")

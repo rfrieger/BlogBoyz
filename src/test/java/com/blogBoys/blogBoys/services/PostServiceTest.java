@@ -10,6 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -32,20 +33,19 @@ public class PostServiceTest {
 
     @Test
     public void getPost() {
-        when(postRepo.findById(0));
+        when(postRepo.findById(0)).thenReturn(Optional.of(stubData().get(0)));
         postService.getPost(0);
         verify(postRepo,times(1)).findById(0);
-
+//
     }
-
-
 
     @Test
     public void index() {
-        when(postRepo.findAll()).thenReturn(stubData());
+//        List<Posts> list = stubData();
+        when(postRepo.getAllByContentNotNullOrderByDateDesc()).thenReturn(stubData());
         postService.index();
 
-        verify(postRepo,times(1)).findAll();
+        verify(postRepo,times(1)).getAllByContentNotNullOrderByDateDesc();
     }
 
     @Test
@@ -76,13 +76,13 @@ public class PostServiceTest {
 
 
     private List<Posts> stubData() {
-        Posts post1 = new Posts("stuff", "Rieger", "jnkj", null, "SPORTS", 1,"");
-        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1,"");
+        Posts post1 = new Posts("stuff", "Rieger", "jnkj", null, "SPORTS","");
+        Posts post2 = new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER","");
 
         return Arrays.asList(post1, post2);
     }
 
     private Posts mockPerson() {
-        return new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER",1,"");
+        return new Posts("morrestuff", "Rieger", "jnkj", null, "OTHER","");
     }
 }

@@ -1,47 +1,42 @@
 package com.blogBoys.blogBoys.models;
 
-import org.hibernate.engine.internal.Cascade;
-
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.sql.Date;
+
 
 @Entity
 public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer post_id;
+    Long post_id;
     String title;
     String content;
     String image;
     String date;
     String tag;
-    Integer user_id;
     String author;
 
-//    @ManyToOne//(cascade = CascadeType.ALL)
-//    private Users users;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Users users;
 
     public Posts() {
     }
 
 
 
-    public Posts(String title, String content, String image, String date, String tag, Integer user_id , String author) {
+    public Posts(String title, String content, String image, String date, String tag, String author) {
         this.title = title;
         this.content = content;
         this.image = image;
         this.date = date;
         this.tag = tag;
-        this.user_id = user_id;
         this.author = author;
     }
 
-    public Integer getPost_id() {
+    public Long getPost_id() {
         return post_id;
     }
 
-    public void setPost_id(Integer post_id) {
+    public void setPost_id(Long post_id) {
         this.post_id = post_id;
     }
 
@@ -55,14 +50,6 @@ public class Posts {
 
     public String getContent() {
         return content;
-    }
-
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
     }
 
     public void setContent(String content) {
@@ -94,13 +81,13 @@ public class Posts {
     }
 
 
-//    public Users getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(Users users) {
-//        this.users = users;
-//    }
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 
     public String getAuthor() {
         return author;

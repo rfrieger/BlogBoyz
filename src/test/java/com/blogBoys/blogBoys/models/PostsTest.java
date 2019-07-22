@@ -9,20 +9,20 @@ public class PostsTest {
     Posts posts = new Posts();
     @Test
     public void getPost_id() {
-        posts.setPost_id(1);
+        posts.setPost_id(1l);
 
-        int actual = 1;
-        int expected = posts.getPost_id();
+        Long actual = 1l;
+        Long expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void setPost_id() {
-        posts.setPost_id(1);
+        posts.setPost_id(1l);
 
-        int actual = 1;
-        int expected = posts.getPost_id();
+        Long actual = 1l;
+        Long expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }
@@ -89,11 +89,23 @@ public class PostsTest {
 
     @Test
     public void getDate() {
+        posts.setDate("10/10");
+
+        String actual = "10/10";
+        String expected = posts.getDate();
+
+        Assert.assertEquals(expected,actual);
 
     }
 
     @Test
     public void setDate() {
+        posts.setDate("10/10");
+
+        String actual = "10/10";
+        String expected = posts.getDate();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
@@ -112,6 +124,26 @@ public class PostsTest {
 
         String actual = "SPORTS";
         String expected = posts.getTag();
+
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getAuthor() {
+        posts.setAuthor("bob");
+
+        String actual = "bob";
+        String expected = posts.getAuthor();
+
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void setAuthor() {
+        posts.setAuthor("bob");
+
+        String actual = "bob";
+        String expected = posts.getAuthor();
 
         Assert.assertEquals(expected,actual);
     }
