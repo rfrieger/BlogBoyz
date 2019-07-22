@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 public class Posts {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long post_id;
     String title;
     String content;
