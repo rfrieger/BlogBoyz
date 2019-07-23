@@ -20,10 +20,8 @@ public class PostController {
 
 
     @GetMapping("/postsByTag/{tag}")
-    public Iterable<Posts> getPostTag(@PathVariable String tag) {return this.postService.PostsByTag(tag);}
+    public List<Posts> getPostTag(@PathVariable String tag) {return this.postService.PostsByTag(tag);}
 
-//    @GetMapping("/post/{name}")
-//    public Posts getPostByName(@PathVariable String name){return this.postService.getByName(name);}
 
     @GetMapping("/posts")
     public List<Posts> getPostAll() { return this.postService.index(); }

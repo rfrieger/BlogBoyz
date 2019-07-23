@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PostRepo extends CrudRepository<Posts, Integer> {
-    Iterable<Posts> getPostsByTag(String tag);
+    List<Posts> getPostsByTag(String tag);
     List<Posts> getAllByContentNotNull();
 }

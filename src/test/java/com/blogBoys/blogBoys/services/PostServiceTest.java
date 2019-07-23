@@ -32,7 +32,7 @@ public class PostServiceTest {
 
     @Test
     public void getPost() {
-        when(postRepo.findById(0));
+        when(postRepo.findById(0)).thenReturn(stubData());
         postService.getPost(0);
         verify(postRepo,times(1)).findById(0);
 

@@ -24,7 +24,12 @@ public class PostService {
         this.postRepo = postRepo;
     }
 
-    public Iterable<Posts> PostsByTag(String tag) {return postRepo.getPostsByTag(tag);}
+    public List<Posts> PostsByTag(String tag) {
+        postsList = postRepo.getPostsByTag(tag);
+        Collections.sort( postsList , compareById.reversed());
+        return postsList;
+    }
+//        return postRepo.getPostsByTag(tag);}
 
     public Posts getPost (Integer id) {return postRepo.findById(id).get();}
 
@@ -39,9 +44,4 @@ public class PostService {
     public Posts update(Posts posts) {return postRepo.save(posts);}
 
     public void deletePost(Integer id) { postRepo.deleteById(id);}
-
-
-
-
-
 }

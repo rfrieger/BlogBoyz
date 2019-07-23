@@ -40,13 +40,13 @@ public class UserServiceTest {
         verify(userRepo, times(1)).deleteById(1);
     }
 
-    @Test
-    public void getUserById() {
-//        when(userRepo.findById(0)).thenReturn(subData().get(0));
-        userService.getUserById(0);
-
-        verify(userRepo,times(1)).findById(0);
-    }
+//    @Test
+//    public void getUserById() {
+////        when(userRepo.findById(0)).thenReturn(subData().get(0));
+//        userService.getUserById(0);
+//
+//        verify(userRepo,times(1)).findById(0);
+//    }
 
     @Test
     public void getUserByNP() {
