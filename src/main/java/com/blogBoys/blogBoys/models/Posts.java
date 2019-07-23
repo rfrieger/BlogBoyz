@@ -1,5 +1,9 @@
 package com.blogBoys.blogBoys.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 
@@ -14,14 +18,15 @@ public class Posts {
     String date;
     String tag;
     String author;
+    String user_id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @JsonManagedReference
+    @JsonBackReference
     private Users users;
 
     public Posts() {
     }
-
-
 
     public Posts(String title, String content, String image, String date, String tag, String author) {
         this.title = title;
@@ -95,5 +100,13 @@ public class Posts {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }

@@ -1,5 +1,7 @@
 package com.blogBoys.blogBoys.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
@@ -17,6 +19,8 @@ public class Users {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @LazyCollection(LazyCollectionOption.TRUE)
+//    @JsonBackReference
+    @JsonManagedReference
     private List<Posts> posts = new ArrayList<>();
 
 
@@ -51,7 +55,7 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-
+//    @JsonIgnore
     public List<Posts> getPosts() {
         return posts;
     }
