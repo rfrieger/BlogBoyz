@@ -19,7 +19,6 @@ public class Users {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @LazyCollection(LazyCollectionOption.TRUE)
-//    @JsonBackReference
     @JsonManagedReference
     private List<Posts> posts = new ArrayList<>();
 
