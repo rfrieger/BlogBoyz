@@ -17,10 +17,10 @@ public class Users {
     String name;
     String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @LazyCollection(LazyCollectionOption.TRUE)
-    @JsonManagedReference
-    private List<Posts> posts = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @LazyCollection(LazyCollectionOption.TRUE)
+//    @JsonManagedReference
+//    private List<Posts> posts = new ArrayList<>();
 
 
     public Users() {
@@ -54,13 +54,12 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-//    @JsonIgnore
-    public List<Posts> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Posts> posts) {
-        this.posts = posts;
-    }
+//    public List<Posts> getPosts() {
+//        return posts;
+//    }
+//
+//    public void setPosts(List<Posts> posts) {
+//        this.posts = posts;
+//    }
 
 }

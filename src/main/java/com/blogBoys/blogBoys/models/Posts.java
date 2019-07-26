@@ -3,8 +3,12 @@ package com.blogBoys.blogBoys.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -20,10 +24,15 @@ public class Posts {
     String author;
     String user_id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JsonManagedReference
-    @JsonBackReference
-    private Users users;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.TRUE)
+    @JsonManagedReference
+    private List<Comment> comments = new ArrayList<>();
+
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+////    @JsonManagedReference
+//    @JsonBackReference
+//    private Users users;
 
     public Posts() {
     }
@@ -86,13 +95,13 @@ public class Posts {
     }
 
 
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
+//    public Users getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Users users) {
+//        this.users = users;
+//    }
 
     public String getAuthor() {
         return author;
