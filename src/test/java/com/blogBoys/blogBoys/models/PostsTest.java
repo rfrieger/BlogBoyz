@@ -3,26 +3,24 @@ package com.blogBoys.blogBoys.models;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PostsTest {
     Posts posts = new Posts();
     @Test
     public void getPost_id() {
-        posts.setPost_id(1l);
+        posts.setPost_id(1);
 
-        Long actual = 1l;
-        Long expected = posts.getPost_id();
+        Integer actual = 1;
+        Integer expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void setPost_id() {
-        posts.setPost_id(1l);
+        posts.setPost_id(1);
 
-        Long actual = 1l;
-        Long expected = posts.getPost_id();
+        Integer actual = 1;
+        Integer expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }

@@ -15,7 +15,7 @@ import java.util.List;
 public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long post_id;
+    Integer post_id;
     String title;
     String content;
     String image;
@@ -46,11 +46,11 @@ public class Posts {
         this.author = author;
     }
 
-    public Long getPost_id() {
+    public Integer getPost_id() {
         return post_id;
     }
 
-    public void setPost_id(Long post_id) {
+    public void setPost_id(Integer post_id) {
         this.post_id = post_id;
     }
 
