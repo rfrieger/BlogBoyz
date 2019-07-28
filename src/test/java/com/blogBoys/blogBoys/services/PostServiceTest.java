@@ -33,33 +33,20 @@ public class PostServiceTest {
 
     @Test
     public void getPost() {
-<<<<<<< HEAD
         when(postRepo.findById(0)).thenReturn(Optional.of(stubData().get(0)));
         postService.getPost(0);
         verify(postRepo,times(1)).findById(0);
-//
-=======
-//        when(postRepo.findById(0)).thenReturn(stubData());
-//        postService.getPost(0);
-//        verify(postRepo,times(1)).findById(0);
 
->>>>>>> 6735bf4452c0f4da0775a4693b3fecb96d924822
+
     }
 
     @Test
     public void index() {
-<<<<<<< HEAD
 //        List<Posts> list = stubData();
         when(postRepo.getAllByContentNotNull()).thenReturn(stubData());
         postService.index();
 
         verify(postRepo,times(1)).getAllByContentNotNull();
-=======
-//        when(postRepo.findAll()).thenReturn(stubData());
-//        postService.index();
-//
-//        verify(postRepo,times(1)).findAll();
->>>>>>> 6735bf4452c0f4da0775a4693b3fecb96d924822
     }
 
     @Test
