@@ -1,7 +1,6 @@
 package com.blogBoys.blogBoys.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import javafx.geometry.Pos;
 
 import javax.persistence.*;
 
