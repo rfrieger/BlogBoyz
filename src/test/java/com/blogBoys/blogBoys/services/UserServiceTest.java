@@ -41,17 +41,7 @@ public class UserServiceTest {
         verify(userRepo, times(1)).deleteById(1);
     }
 
-    @Test
-    public void getUserById() {
-<<<<<<< HEAD
-//        when(userRepo.findById(0)).thenReturn(subData().get(0));
-=======
-////        when(userRepo.findById(0)).thenReturn(subData().get(0));
->>>>>>> 6735bf4452c0f4da0775a4693b3fecb96d924822
-//        userService.getUserById(0);
-//
-//        verify(userRepo,times(1)).findById(0);
-    }
+
 
     @Test
     public void getUserByNP() {
