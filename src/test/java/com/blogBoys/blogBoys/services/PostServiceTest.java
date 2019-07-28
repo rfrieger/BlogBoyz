@@ -42,10 +42,10 @@ public class PostServiceTest {
     @Test
     public void index() {
 //        List<Posts> list = stubData();
-        when(postRepo.getAllByContentNotNullOrderByDateDesc()).thenReturn(stubData());
+        when(postRepo.getAllByContentNotNull()).thenReturn(stubData());
         postService.index();
 
-        verify(postRepo,times(1)).getAllByContentNotNullOrderByDateDesc();
+        verify(postRepo,times(1)).getAllByContentNotNull();
     }
 
     @Test

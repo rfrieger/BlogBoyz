@@ -5,6 +5,8 @@ import com.blogBoys.blogBoys.repos.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -18,12 +20,22 @@ public class PostService {
         this.postRepo = postRepo;
     }
 
-    public Iterable<Posts> PostsByTag(String tag) {return postRepo.getPostsByTag(tag);}
+    List<Posts> postsList;
+    Comparator<Posts> compareById = Comparator.comparing(Posts::getPost_id);
+
+
+    public List<Posts> PostsByTag(String tag) {
+        postsList = postRepo.getPostsByTag(tag);
+        Collections.sort( postsList , compareById.reversed());
+        return postsList;
+    }
 
     public Posts getPost (Integer id) {return postRepo.findById(id).get();}
 
-    public Iterable<Posts> index() {
-        return postRepo.getAllByContentNotNullOrderByDateDesc();
+    public List<Posts> index() {
+        postsList = postRepo.getAllByContentNotNull();
+        Collections.sort( postsList , compareById.reversed());
+        return postsList;
     }
 
     public Posts create(Posts posts) {return postRepo.save(posts);}

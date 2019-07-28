@@ -4,10 +4,15 @@ import com.blogBoys.blogBoys.models.Posts;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PostRepo extends CrudRepository<Posts, Integer> {
 
-    Iterable<Posts> getPostsByTag(String tag);
+    List<Posts> getPostsByTag(String tag);
 
-    Iterable<Posts> getAllByContentNotNullOrderByDateDesc();
+//    Iterable<Posts> getAllByContentNotNullOrderByDateDesc();
+
+    List<Posts> getAllByContentNotNull();
+
 }
