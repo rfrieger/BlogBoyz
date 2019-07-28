@@ -13,6 +13,7 @@ public interface PostRepo extends CrudRepository<Posts, Integer> {
 
 //    Iterable<Posts> getAllByContentNotNullOrderByDateDesc();
 
+
     List<Posts> getAllByContentNotNull();
 
 }
