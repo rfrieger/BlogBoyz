@@ -1,8 +1,9 @@
 package com.blogBoys.blogBoys.models;
 
-import org.springframework.data.repository.cdi.Eager;
-import org.springframework.data.util.Lazy;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,8 @@ public class Users {
     String password;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @LazyCollection(LazyCollectionOption.TRUE)
+//    @JsonManagedReference
 //    private List<Posts> posts = new ArrayList<>();
 
 
@@ -51,7 +54,6 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-
 //    public List<Posts> getPosts() {
 //        return posts;
 //    }

@@ -3,16 +3,14 @@ package com.blogBoys.blogBoys.models;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PostsTest {
     Posts posts = new Posts();
     @Test
     public void getPost_id() {
         posts.setPost_id(1);
 
-        int actual = 1;
-        int expected = posts.getPost_id();
+        Integer actual = 1;
+        Integer expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }
@@ -21,8 +19,8 @@ public class PostsTest {
     public void setPost_id() {
         posts.setPost_id(1);
 
-        int actual = 1;
-        int expected = posts.getPost_id();
+        Integer actual = 1;
+        Integer expected = posts.getPost_id();
 
         Assert.assertEquals(expected,actual);
     }
@@ -89,11 +87,23 @@ public class PostsTest {
 
     @Test
     public void getDate() {
+        posts.setDate("10/10");
+
+        String actual = "10/10";
+        String expected = posts.getDate();
+
+        Assert.assertEquals(expected,actual);
 
     }
 
     @Test
     public void setDate() {
+        posts.setDate("10/10");
+
+        String actual = "10/10";
+        String expected = posts.getDate();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
@@ -112,6 +122,26 @@ public class PostsTest {
 
         String actual = "SPORTS";
         String expected = posts.getTag();
+
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getAuthor() {
+        posts.setAuthor("bob");
+
+        String actual = "bob";
+        String expected = posts.getAuthor();
+
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void setAuthor() {
+        posts.setAuthor("bob");
+
+        String actual = "bob";
+        String expected = posts.getAuthor();
 
         Assert.assertEquals(expected,actual);
     }
