@@ -11,6 +11,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer commment_Id;
     String content;
+    Integer post_id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
