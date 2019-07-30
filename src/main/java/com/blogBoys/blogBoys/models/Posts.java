@@ -22,7 +22,7 @@ public class Posts {
     String author;
     String user_id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "posts")
     @LazyCollection(LazyCollectionOption.TRUE)
     @JsonManagedReference
     private List<Comment> comments = new ArrayList<>();
@@ -115,5 +115,13 @@ public class Posts {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

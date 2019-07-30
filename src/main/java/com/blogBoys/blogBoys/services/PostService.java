@@ -32,8 +32,6 @@ public class PostService {
         return postsList;
     }
 
-//        return postRepo.getPostsByTag(tag);}
-
     public Posts getPost (Integer id) {return postRepo.findById(id).get();}
 
     public List<Posts> index() {

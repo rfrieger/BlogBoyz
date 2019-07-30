@@ -1,6 +1,6 @@
 package com.blogBoys.blogBoys.controllers;
 
-import com.blogBoys.blogBoys.models.Comment;
+import com.blogBoys.blogBoys.models.CommentRequest;
 import com.blogBoys.blogBoys.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +12,10 @@ public class CommentController {
     @Autowired
     public CommentService commentService;
 
+    @PostMapping("/comment/{post_id}")
+    public void  creatComment(@RequestBody CommentRequest commentRequest, @PathVariable Integer post_id ) {
 
-
-    @PostMapping("/comment")
-    public Comment creatComment(@RequestBody Comment comment) {
-        System.out.println("testasfas");
-        return this.commentService.createComment(comment);
+         this.commentService.createComment(commentRequest , post_id);
     }
 }
 
