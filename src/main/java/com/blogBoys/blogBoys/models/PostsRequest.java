@@ -1,18 +1,6 @@
 package com.blogBoys.blogBoys.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-
-@Entity
-public class Posts {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class PostsRequest {
     Integer post_id;
     String title;
     String content;
@@ -21,23 +9,6 @@ public class Posts {
     String tag;
     String author;
     String user_id;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "posts")
-    @LazyCollection(LazyCollectionOption.TRUE)
-    @JsonManagedReference
-    private List<Comment> comments = new ArrayList<>();
-
-    public Posts() {
-    }
-
-    public Posts(String title, String content, String image, String date, String tag, String author) {
-        this.title = title;
-        this.content = content;
-        this.image = image;
-        this.date = date;
-        this.tag = tag;
-        this.author = author;
-    }
 
     public Integer getPost_id() {
         return post_id;
@@ -101,13 +72,5 @@ public class Posts {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 }

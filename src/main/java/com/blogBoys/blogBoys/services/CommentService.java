@@ -15,9 +15,6 @@ public class CommentService {
     @Autowired
     public PostService postService;
 
-//    public Comment createComment(Comment comment) {return this.commentRepo.save(comment);
-//    }
-
     public void createComment(CommentRequest requestComment, Integer post_id) {
 
         Posts post = postService.getPost(post_id);
@@ -28,9 +25,6 @@ public class CommentService {
         comment.setPosts(post);
 
         this.commentRepo.save(comment);
-
-//        post.getComments().add(comment);
-//        postService.create(post);
 
     }
 }

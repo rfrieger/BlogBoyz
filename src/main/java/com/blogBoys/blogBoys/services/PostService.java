@@ -20,11 +20,8 @@ public class PostService {
         this.postRepo = postRepo;
     }
 
-
     List<Posts> postsList;
     Comparator<Posts> compareById = Comparator.comparing(Posts::getPost_id);
-
-
 
     public List<Posts> PostsByTag(String tag) {
         postsList = postRepo.getPostsByTag(tag);
