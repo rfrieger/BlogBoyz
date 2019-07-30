@@ -11,9 +11,6 @@ public interface PostRepo extends CrudRepository<Posts, Integer> {
 
     List<Posts> getPostsByTag(String tag);
 
-//    Iterable<Posts> getAllByContentNotNullOrderByDateDesc();
-
-
     List<Posts> getAllByContentNotNull();
 
 }

@@ -1,11 +1,9 @@
 package com.blogBoys.blogBoys.controllers;
 
-import com.blogBoys.blogBoys.models.Comment;
+import com.blogBoys.blogBoys.models.CommentRequest;
 import com.blogBoys.blogBoys.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -14,11 +12,10 @@ public class CommentController {
     @Autowired
     public CommentService commentService;
 
+    @PostMapping("/comment/{post_id}")
+    public void  creatComment(@RequestBody CommentRequest commentRequest, @PathVariable Integer post_id ) {
 
-
-    @PostMapping("/comment")
-    public Comment creatComment(Comment comment) {
-        return this.commentService.createComment(comment);
+         this.commentService.createComment(commentRequest , post_id);
     }
 }
 

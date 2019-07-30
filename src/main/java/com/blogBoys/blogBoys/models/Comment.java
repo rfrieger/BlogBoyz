@@ -12,7 +12,8 @@ public class Comment {
     Integer commment_Id;
     String content;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
     @JsonBackReference
     private Posts posts;
 

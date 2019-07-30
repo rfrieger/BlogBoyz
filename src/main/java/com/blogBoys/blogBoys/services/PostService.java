@@ -20,19 +20,14 @@ public class PostService {
         this.postRepo = postRepo;
     }
 
-
     List<Posts> postsList;
     Comparator<Posts> compareById = Comparator.comparing(Posts::getPost_id);
-
-
 
     public List<Posts> PostsByTag(String tag) {
         postsList = postRepo.getPostsByTag(tag);
         Collections.sort( postsList , compareById.reversed());
         return postsList;
     }
-
-//        return postRepo.getPostsByTag(tag);}
 
     public Posts getPost (Integer id) {return postRepo.findById(id).get();}
 
