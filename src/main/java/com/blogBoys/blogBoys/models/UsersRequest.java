@@ -1,25 +1,10 @@
 package com.blogBoys.blogBoys.models;
 
+public class UsersRequest {
 
-import javax.persistence.*;
-
-@Entity
-public class Users {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer user_id;
     String name;
     String password;
-
-
-    public Users() {
-    }
-
-    public Users(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
 
     public Integer getUser_id() {
         return user_id;
@@ -44,5 +29,4 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
