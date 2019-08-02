@@ -23,6 +23,9 @@ public class CommentService {
         comment.setContent(requestComment.getContent());
         comment.setCommment_Id(requestComment.getCommment_Id());
         comment.setPosts(post);
+        System.out.println(requestComment.getAuthor());
+        comment.setAuthor(requestComment.getAuthor());
+
 
         this.commentRepo.save(comment);
 
