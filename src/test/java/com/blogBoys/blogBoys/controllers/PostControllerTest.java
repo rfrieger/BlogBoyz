@@ -7,10 +7,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
 import java.util.Arrays;
 import java.util.List;
-
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -25,10 +23,10 @@ public class PostControllerTest {
 
     @Test
     public void getPostById() {
-//        when(postService.getPost(1)).thenReturn(stubData().get(1));
-//        postController(1);
-//
-//        verify(postService, times(1)).getPost(1);
+        when(postService.getPost(1)).thenReturn(stubData().get(1));
+        postController.getPostById(1);
+
+        verify(postService, times(1)).getPost(1);
     }
 
     @Test
@@ -55,18 +53,6 @@ public class PostControllerTest {
 
         verify(postService, times(1)).create(post);
     }
-
-
-//    @Test
-//    public void updatePost() {
-//        Posts posts = mockPerson();
-//        List<Posts> arr = stubData();
-//
-//        when(postService.update(posts)).thenReturn(arr.get(1));
-//        postController.updatePost( 1,posts);
-//        verify(postService,times(1)).update(posts);
-//
-//    }
 
 
     @Test

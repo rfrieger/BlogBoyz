@@ -38,9 +38,6 @@ public class PostController {
         Posts newPost = getPostById(id);
         newPost.setTitle(posts.getTitle());
         newPost.setContent(posts.getContent());
-        newPost.setImage(posts.getImage());
-        newPost.setDate(posts.getDate());
-        newPost.setTag(posts.getTag());
         return this.postService.update(newPost);
     }
 

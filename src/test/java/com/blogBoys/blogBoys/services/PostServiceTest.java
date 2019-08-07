@@ -25,10 +25,10 @@ public class PostServiceTest {
 //
     @Test
     public void postsByTag() {
-//        when(postRepo.getPostsByTag("SPORTS")).thenReturn(stubData());
-//        postService.PostsByTag("SPORTS");
-//
-//        verify(postRepo, times(1)).getPostsByTag("SPORTS");
+        when(postRepo.getPostsByTag("SPORTS")).thenReturn(stubData());
+        postService.PostsByTag("SPORTS");
+
+        verify(postRepo, times(1)).getPostsByTag("SPORTS");
     }
 
     @Test
